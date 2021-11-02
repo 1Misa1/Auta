@@ -26,7 +26,7 @@ namespace Auta
             if (misto < naklad)
             {
                 this.naklad += misto;
-                return misto;
+                return misto;               // throw new Exception("Naklad přesahuje nosnost."); Dá info že se to nedá přeložit a to je vše 
             }                               // pokud je mista v autě dost naloží to, když se přeskočí max nosnost tak se naloží jen do maxima a zbytek nenaloží
             else
             {
@@ -38,7 +38,24 @@ namespace Auta
 
         public int Vylozit(int naklda)
         {
+            if (Naklad < naklad)
+            {
+                var vylozeni = Naklad;
+                this.naklad = 0;
+                return vylozeni;
+            }
+            else
+            {
+                this.naklad -= naklad;
+                return naklad;
+            }
+        }
 
+        public int Zaparkovat()
+        {
+            var vylozeni = Naklad;
+            this.naklad = 0;
+            return vylozeni;
         }
 
 

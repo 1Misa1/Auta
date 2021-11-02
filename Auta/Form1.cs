@@ -12,9 +12,31 @@ namespace Auta
 {
     public partial class Form1 : Form
     {
+        Auto nakladak;
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            nakladak = new Auto("2BB 10-25", 7500);
+        }
+        private void ZobrazAuto(Auto auto)
+        {
+            lblZnacka.Text = auto.Znacka;
+            lblNosnost.Text = $"{auto.Nosnost} kg";
+            lblNaklad.Text = $"{auto.Naklad} kg";
+        }
+
+        private void Nalozit_Click(object sender, EventArgs e)
+        {
+            var nalozeno = nakladak.Nalozit()
         }
     }
 }
